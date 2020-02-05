@@ -14,8 +14,8 @@ try:
 except ImportError:
     install("Pillow")
 #initialize
-url = input("enter a chapter url from mangaread.co:\n")
-print("\nPlease wait, it may take 1 minute...\n")
+url = input("Enter a chapter url from mangaread.co:\n")
+print("\nPlease wait. It may take 1 minute... (depends on number of pages)\n")
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
