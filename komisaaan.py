@@ -19,7 +19,7 @@ print("\nPlease wait. It may take 1 minute... (depends on the number of pages)\n
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
-directory = str(soup.find("li", class_="active").text)[13:]
+directory = str(soup.find("li", class_="active").text)[13:-44]
 if os.path.isdir(directory) != True:
     os.mkdir(directory)
 pages = soup.find("div", class_="select-pagination")
