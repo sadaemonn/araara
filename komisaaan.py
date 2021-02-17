@@ -15,11 +15,11 @@ except ImportError:
     install("Pillow")
 #initialize
 url = input("Enter a chapter url from mangaread.co:\n")
-print("\nPlease wait. It may take 1 minute... (depends on number of pages)\n")
+print("\nPlease wait. It may take 1 minute... (depends on the number of pages)\n")
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
-directory = str(soup.find("li", class_="active").text)[1:]
+directory = str(soup.find("li", class_="active").text)[13:]
 if os.path.isdir(directory) != True:
     os.mkdir(directory)
 pages = soup.find("div", class_="select-pagination")
@@ -53,4 +53,4 @@ for item in os.listdir(directory):
     os.remove(directory + item)
 os.rmdir(directory)
 
-print("Done! Check your pdf located at the same directory as this file.")
+print("Done! Check your pdf file. It's located at the same directory as this file.")
